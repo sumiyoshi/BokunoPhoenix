@@ -20,8 +20,6 @@ RUN useradd -m -s /bin/bash elixir
 RUN echo 'elixir:password' | chpasswd
 RUN mkdir -p ${APP_DIR}
 
-#USER elixir
-
 RUN mix local.hex --force
 RUN mix local.rebar --force
 RUN mix archive.install --force  hex phx_new ${PHX_VERSION}
