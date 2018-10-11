@@ -11,5 +11,5 @@ jobs:
       - checkout
       - run: mix local.hex --force
       - run: mix local.rebar
-      - run: cd src ; mix deps.get
-      - run: cd src ; DB_HOST=localhost mix test
+      - run: cd app ; mix deps.get
+      - run: cd app ; DB_HOST=localhost mix test
