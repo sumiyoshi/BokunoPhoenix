@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/cci-phoenix
     docker:
-      - image: elixir:1.7.0
+      - image: elixir:1.7
       - image: mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
