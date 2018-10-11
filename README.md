@@ -23,21 +23,7 @@ docker-compose exec service mix phx.server
 ## Prod
 
 ```
-
-docker-compose exec service mix build
-docker-compose exec MIX_ENV=prod mix compile
-
-# Compile assets
-$ brunch build --production
-
-$ mix phx.digest
-
-# Custom tasks (like DB migrations)
-$ MIX_ENV=prod mix ecto.migrate
-
-# Finally run the server
-$ PORT=4001 MIX_ENV=prod mix phx.server
-
+docker-compose exec service sh build.sh
 ```
 
 ## Test
