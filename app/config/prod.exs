@@ -11,11 +11,18 @@ use Mix.Config
 # before starting your production server.
 config :app, AppWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
+  url: [host: "bokuno.phoenix.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger,
+       backends: [{LoggerFileBackend, :log}]
+
+# Configures Elixir's Logger
+config :logger, :log,
+       path: "priv/log/app.log",
+       level: :info,
+       format: "$time $metadata[$level] $message\n"
 
 # ## SSL Support
 #

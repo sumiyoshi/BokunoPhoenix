@@ -6,6 +6,7 @@ services:
         - ./app:/opt/app
       ports:
         - "4000:4000"
+        - "80:4001"
       environment:
         - "TZ=Japan"
         - "DB_HOST=bokuno-phoenix-db"
