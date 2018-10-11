@@ -1,5 +1,6 @@
 # BokunoPhoenix
 
+[![CircleCI](https://circleci.com/gh/sumiyoshi/BokunoPhoenix.svg?style=svg)](https://circleci.com/gh/sumiyoshi/BokunoPhoenix)
 
 ## Install
 
