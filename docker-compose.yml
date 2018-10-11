@@ -1,0 +1,33 @@
+version: '3'
+services:
+  service: &defaults
+      build: ./.docker
+      volumes:
+        - ./app:/opt/app
+      ports:
+        - "4000:4000"
+      environment:
+        - "TZ=Japan"
+        - "DB_HOST=bokuno-phoenix-db"
+      container_name: bokuno-phoenix-service
+  assets:
+      <<: *defaults
+      working_dir: /opt/app/assets
+      ports:
+        - "4002:4002"
+      container_name: bokuno-phoenix-assets
+  storage:
+    image: busybox
+    volumes:
+      - /var/lib/mysql
+    container_name: bokuno-phoenix-storage
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./.docker/database/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d
+      - storage
+    ports:
+      - "3306:3306"
+    container_name: bokuno-phoenix-db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
