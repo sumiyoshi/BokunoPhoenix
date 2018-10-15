@@ -42,7 +42,8 @@ defmodule App.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:cowboy, "~> 1.0"},
-      {:logger_file_backend, "~> 0.0.9"}
+      {:logger_file_backend, "~> 0.0.9"},
+      {:distillery, "~> 2.0"}
     ]
   end
 
