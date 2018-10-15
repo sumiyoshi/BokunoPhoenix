@@ -20,14 +20,38 @@ docker-compose exec service mix ecto.create
 docker-compose exec service mix phx.server
 ```
 
-## Prod
+## Building a Release
 
 ```
-docker-compose exec service mix release.init
 
-docker-compose exec service sh ./.bin/build.sh
+docker-compose exec service sh ./.bin/prod.init.sh
 
 docker-compose exec service sh ./.bin/server.sh
+
+
+```
+
+## Version UP
+
+
+file: mix.exs
+
+```
+
+def project do
+   [
+    ...
+    version: "{new version}",
+    ...
+   ]
+end
+
+```
+
+```
+docker-compose exec service sh ./.bin/upgrade.sh
+
+docker-compose exec service _build/prod/rel/app/bin/app upgrade {VERSION}
 ```
 
 ## Test

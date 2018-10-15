@@ -8,5 +8,5 @@ npm run deploy
 
 cd ../
 mix phx.digest
-MIX_ENV=prod mix ecto.create
 MIX_ENV=prod mix ecto.migrate
+MIX_ENV=prod mix release --env=prod --upgrade
